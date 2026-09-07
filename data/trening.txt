@@ -1,0 +1,72 @@
+Pitanje: Ko je Nikola Tesla?
+Odgovor: Nikola Tesla je bio srpski naučnik i pronalazač poznat po radu na električnoj energiji i naizmjeničnoj struji.
+Pitanje: Šta je električna energija?
+Odgovor: Električna energija je oblik energije koji nastaje kretanjem elektrona kroz provodnik.
+Pitanje: Šta je Python?
+Odgovor: Python je visokonivojski programski jezik koji se koristi za razvoj aplikacija, analizu podataka i vještačku inteligenciju.
+Pitanje: Šta je neuronska mreža?
+Odgovor: Neuronska mreža je model inspirisan radom ljudskog mozga koji se koristi za prepoznavanje obrazaca i učenje iz podataka.
+Pitanje: Šta je mašinsko učenje?
+Odgovor: Mašinsko učenje je oblast vještačke inteligencije koja omogućava računarima da uče iz podataka bez eksplicitnog programiranja.
+Pitanje: Šta je overfitting?
+Odgovor: Overfitting je pojava kada model previše nauči trening podatke i loše generalizuje na nove podatke.
+Pitanje: Šta je gradient descent?
+Odgovor: Gradient descent je algoritam optimizacije koji se koristi za minimizaciju funkcije gubitka prilagođavanjem parametara modela.
+Pitanje: Šta je softmax funkcija?
+Odgovor: Softmax funkcija pretvara niz brojeva u vjerovatnoće koje sabiranjem daju jedan.
+Pitanje: Šta je GPU?
+Odgovor: GPU je procesorska jedinica specijalizovana za paralelnu obradu podataka, često korištena za treniranje neuronskih mreža.
+Pitanje: Šta je transformer model?
+Odgovor: Transformer je model dubokog učenja koji koristi mehanizam pažnje za obradu sekvenci podataka.
+Pitanje: Šta je attention?
+Odgovor: Attention je mehanizam koji omogućava modelu da se fokusira na relevantne dijelove ulaza prilikom obrade informacija.
+Pitanje: Šta je token?
+Odgovor: Token je osnovna jedinica teksta koju model koristi, može biti riječ, dio riječi ili karakter.
+Pitanje: Šta je algoritam?
+Odgovor: Algoritam je konačan niz jasno definisanih koraka koji se koriste za rješavanje nekog problema.
+Pitanje: Šta je baza podataka?
+Odgovor: Baza podataka je strukturisana kolekcija podataka koja omogućava efikasno čuvanje, pretragu i obradu informacija.
+Pitanje: Šta je API?
+Odgovor: API je skup pravila koji omogućava komunikaciju između različitih softverskih aplikacija.
+Pitanje: Šta je cloud computing?
+Odgovor: Cloud computing je korištenje računarskih resursa preko interneta umjesto lokalnog računara.
+Pitanje: Šta je big data?
+Odgovor: Big data označava veoma velike količine podataka koje je teško obraditi tradicionalnim metodama.
+Pitanje: Šta je deep learning?
+Odgovor: Deep learning je podoblast mašinskog učenja koja koristi duboke neuronske mreže za učenje iz podataka.
+Pitanje: Šta je feature u mašinskom učenju?
+Odgovor: Feature je pojedinačna mjerljiva karakteristika podataka koja se koristi za treniranje modela.
+Pitanje: Šta je dataset?
+Odgovor: Dataset je skup podataka koji se koristi za analizu ili treniranje modela.
+Pitanje: Šta je backpropagation?
+Odgovor: Backpropagation je algoritam koji se koristi za ažuriranje težina u neuronskim mrežama na osnovu greške.
+Pitanje: Šta je aktivaciona funkcija?
+Odgovor: Aktivaciona funkcija određuje izlaz neurona na osnovu njegovog ulaza.
+Pitanje: Šta je normalizacija podataka?
+Odgovor: Normalizacija podataka je proces skaliranja vrijednosti kako bi bile u sličnom opsegu.
+Pitanje: Šta je latency?
+Odgovor: Latency je vrijeme kašnjenja između slanja zahtjeva i dobijanja odgovora u sistemu.
+Pitanje: Šta je operativni sistem?
+Odgovor: Operativni sistem je softver koji upravlja hardverom računara i omogućava pokretanje aplikacija.
+Pitanje: Šta je RAM memorija?
+Odgovor: RAM je radna memorija računara koja privremeno čuva podatke potrebne programima tokom izvršavanja.
+Pitanje: Šta je CPU?
+Odgovor: CPU je centralna procesorska jedinica koja izvršava instrukcije i obrađuje podatke u računaru.
+Pitanje: Šta je fajl sistem?
+Odgovor: Fajl sistem je način organizovanja i čuvanja podataka na disku.
+Pitanje: Šta je enkripcija?
+Odgovor: Enkripcija je proces zaštite podataka pretvaranjem u nečitljiv oblik bez odgovarajućeg ključa.
+Pitanje: Šta je internet protokol?
+Odgovor: Internet protokol je skup pravila koji omogućava prenos podataka između računara na mreži.
+Pitanje: Šta je HTTP?
+Odgovor: HTTP je mrežni protokol koji omogućava razmjenu podataka između web pregledača i servera.
+Pitanje: Šta je URL?
+Odgovor: URL je adresa koja se koristi za pristup resursima na internetu.
+Pitanje: Šta je binary kod?
+Odgovor: Binary kod je sistem zapisa koji koristi samo dvije vrijednosti, 0 i 1.
+Pitanje: Šta je open-source softver?
+Odgovor: Open-source softver je softver čiji je izvorni kod javno dostupan i može se slobodno mijenjati.
+Pitanje: Šta je bug u programu?
+Odgovor: Bug je greška u softveru koja može uzrokovati neispravno ponašanje programa.
+Pitanje: Šta je verzionisanje koda?
+Odgovor: Verzionsanje koda je proces praćenja i upravljanja promjenama u izvornom kodu.

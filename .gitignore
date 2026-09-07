@@ -1,0 +1,6 @@
+venv/
+__pycache__/
+*.pyc
+rezultati/
+tokenizator/spm.model
+tokenizator/spm.vocab
