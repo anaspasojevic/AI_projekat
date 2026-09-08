@@ -7,11 +7,11 @@ sys.path.insert(0, KORIJEN_PROJEKTA)
 
 from tokenizator.treniraj_tokenizator import ucitaj_tokenizator
 from src.skup_podataka import napravi_ucitavac
-from src.pozicioni_kod import BezPozicije, NauceniApsolutniEmbeding
+from src.pozicioni_kod import BezPozicije, NauceniApsolutniEmbeding, SinusoidnoKodiranje
 from src.model import MiniTransformer
 
-# menjamo samo ovu liniju da istreniramo drugu varijantu
-NAZIV_POZICIONOG_KODA = "naucena_apsolutna"
+
+NAZIV_POZICIONOG_KODA = "sinusoidno"
 
 DUZINA_KONTEKSTA = 32
 VELICINA_PAKETA = 8
@@ -25,6 +25,8 @@ def napravi_pozicioni_kod(naziv, duzina_konteksta, d_model):
         return BezPozicije()
     elif naziv == "naucena_apsolutna":
         return NauceniApsolutniEmbeding(duzina_konteksta, d_model)
+    elif naziv == "sinusoidno":
+        return SinusoidnoKodiranje(duzina_konteksta, d_model)
     else:
         raise ValueError(f"Nepoznat pozicioni kod: {naziv}")
 
