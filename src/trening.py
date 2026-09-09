@@ -11,7 +11,7 @@ from src.pozicioni_kod import BezPozicije, NauceniApsolutniEmbeding, SinusoidnoK
 from src.model import MiniTransformer
 
 
-NAZIV_POZICIONOG_KODA = "sinusoidno"
+NAZIV_POZICIONOG_KODA = "rope"
 
 DUZINA_KONTEKSTA = 32
 VELICINA_PAKETA = 8
@@ -27,6 +27,9 @@ def napravi_pozicioni_kod(naziv, duzina_konteksta, d_model):
         return NauceniApsolutniEmbeding(duzina_konteksta, d_model)
     elif naziv == "sinusoidno":
         return SinusoidnoKodiranje(duzina_konteksta, d_model)
+    elif naziv == "rope":
+        # kod rope se pozicija ne dodaje ovdje nego u attention sloju !
+        return BezPozicije()
     else:
         raise ValueError(f"Nepoznat pozicioni kod: {naziv}")
 
@@ -49,6 +52,7 @@ def treniraj():
         duzina_konteksta=DUZINA_KONTEKSTA,
         d_model=D_MODEL,
         pozicioni_kod=pozicioni_kod,
+        koristi_rope=(NAZIV_POZICIONOG_KODA == "rope"),
     ).to(uredjaj)
 
     optimizator = torch.optim.AdamW(model.parameters(), lr=STOPA_UCENJA)
