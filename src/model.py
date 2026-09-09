@@ -1,20 +1,26 @@
 import torch
 from torch import nn
+from src.rope import primijeni_rope
 
 
-class SamoPaznja(nn.Module):
-    def __init__(self, d_model):
+class SelfAttention(nn.Module):
+    def __init__(self, d_model, koristi_rope=False):
         super().__init__()
-        self.upit = nn.Linear(d_model, d_model)
-        self.kljuc = nn.Linear(d_model, d_model)
-        self.vrijednost = nn.Linear(d_model, d_model)
+        self.query = nn.Linear(d_model, d_model)
+        self.key = nn.Linear(d_model, d_model)
+        self.value = nn.Linear(d_model, d_model)
+        self.koristi_rope = koristi_rope
 
     def forward(self, x):
         B, T, D = x.shape
 
-        Q = self.upit(x)
-        K = self.kljuc(x)
-        V = self.vrijednost(x)
+        Q = self.query(x)
+        K = self.key(x)
+        V = self.value(x)
+
+        if self.koristi_rope:
+            Q = primijeni_rope(Q)
+            K = primijeni_rope(K)
 
         skor = Q @ K.transpose(-2, -1) / (D ** 0.5)
 
@@ -28,10 +34,10 @@ class SamoPaznja(nn.Module):
 
 
 class Blok(nn.Module):
-    def __init__(self, d_model):
+    def __init__(self, d_model, koristi_rope=False):
         super().__init__()
         self.norma1 = nn.LayerNorm(d_model)
-        self.paznja = SamoPaznja(d_model)
+        self.paznja = SelfAttention(d_model, koristi_rope=koristi_rope)
         self.norma2 = nn.LayerNorm(d_model)
         self.mlp = nn.Sequential(
             nn.Linear(d_model, 4 * d_model),
@@ -46,12 +52,12 @@ class Blok(nn.Module):
 
 
 class MiniTransformer(nn.Module):
-    def __init__(self, velicina_vokabulara, duzina_konteksta, d_model, pozicioni_kod):
+    def __init__(self, velicina_vokabulara, duzina_konteksta, d_model, pozicioni_kod, koristi_rope=False):
         super().__init__()
         self.token_embeding = nn.Embedding(velicina_vokabulara, d_model)
         self.pozicioni_kod = pozicioni_kod
 
-        self.blok = Blok(d_model)
+        self.blok = Blok(d_model, koristi_rope=koristi_rope)
         self.zavrsna_norma = nn.LayerNorm(d_model)
         self.izlazni_sloj = nn.Linear(d_model, velicina_vokabulara)
 
