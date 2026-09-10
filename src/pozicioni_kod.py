@@ -49,3 +49,18 @@ class SinusoidnoKodiranje(PozicioniKod):
     def primijeni(self, x):
         _, T, _ = x.shape
         return x + self.pe[:T]
+
+
+def napravi_pozicioni_kod(naziv, duzina_konteksta, d_model):
+    # zajednicka funkcija, koriste je i trening i generisanje
+    if naziv == "bez_pozicije":
+        return BezPozicije()
+    elif naziv == "naucena_apsolutna":
+        return NauceniApsolutniEmbeding(duzina_konteksta, d_model)
+    elif naziv == "sinusoidno":
+        return SinusoidnoKodiranje(duzina_konteksta, d_model)
+    elif naziv == "rope":
+        # kod rope se pozicija ne dodaje ovdje nego u attention sloju
+        return BezPozicije()
+    else:
+        raise ValueError(f"Nepoznat pozicioni kod: {naziv}")

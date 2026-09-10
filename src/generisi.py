@@ -6,26 +6,12 @@ KORIJEN_PROJEKTA = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, KORIJEN_PROJEKTA)
 
 from tokenizator.treniraj_tokenizator import ucitaj_tokenizator
-from src.pozicioni_kod import BezPozicije, NauceniApsolutniEmbeding, SinusoidnoKodiranje
+from src.pozicioni_kod import napravi_pozicioni_kod
 from src.model import MiniTransformer
 
 NAZIV_POZICIONOG_KODA = "rope"
 DUZINA_KONTEKSTA = 32
 D_MODEL = 64
-
-
-def napravi_pozicioni_kod(naziv, duzina_konteksta, d_model):
-    if naziv == "bez_pozicije":
-        return BezPozicije()
-    elif naziv == "naucena_apsolutna":
-        return NauceniApsolutniEmbeding(duzina_konteksta, d_model)
-    elif naziv == "sinusoidno":
-        return SinusoidnoKodiranje(duzina_konteksta, d_model)
-    elif naziv == "rope":
-        return BezPozicije()
-    else:
-        raise ValueError(f"Nepoznat pozicioni kod: {naziv}")
-
 
 def generisi(model, sp, pocetak, broj_tokena=30):
     tokeni = sp.encode(pocetak, out_type=int)

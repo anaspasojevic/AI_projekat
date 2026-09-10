@@ -7,10 +7,12 @@ sys.path.insert(0, KORIJEN_PROJEKTA)
 
 from tokenizator.treniraj_tokenizator import ucitaj_tokenizator
 from src.skup_podataka import napravi_ucitavac
-from src.pozicioni_kod import BezPozicije, NauceniApsolutniEmbeding, SinusoidnoKodiranje
+from src.pozicioni_kod import napravi_pozicioni_kod
 from src.model import MiniTransformer
 
 
+#NAZIV_POZICIONOG_KODA = "naucena_apsolutna"
+#NAZIV_POZICIONOG_KODA = "sinusoidno"
 NAZIV_POZICIONOG_KODA = "rope"
 
 DUZINA_KONTEKSTA = 32
@@ -18,20 +20,6 @@ VELICINA_PAKETA = 8
 D_MODEL = 64
 BROJ_EPOHA = 30
 STOPA_UCENJA = 3e-4
-
-
-def napravi_pozicioni_kod(naziv, duzina_konteksta, d_model):
-    if naziv == "bez_pozicije":
-        return BezPozicije()
-    elif naziv == "naucena_apsolutna":
-        return NauceniApsolutniEmbeding(duzina_konteksta, d_model)
-    elif naziv == "sinusoidno":
-        return SinusoidnoKodiranje(duzina_konteksta, d_model)
-    elif naziv == "rope":
-        # kod rope se pozicija ne dodaje ovdje nego u attention sloju !
-        return BezPozicije()
-    else:
-        raise ValueError(f"Nepoznat pozicioni kod: {naziv}")
 
 
 def treniraj():
