@@ -10,10 +10,16 @@ from src.pozicioni_kod import napravi_pozicioni_kod
 from src.model import MiniTransformer
 
 NAZIV_POZICIONOG_KODA = "rope"
-DUZINA_KONTEKSTA = 32
-D_MODEL = 64
+#NAZIV_POZICIONOG_KODA = "sinusoidno"
+#NAZIV_POZICIONOG_KODA = "naucena_apsolutna"
+#NAZIV_POZICIONOG_KODA = "bez_pozicije"
 
-def generisi(model, sp, pocetak, broj_tokena=30):
+
+DUZINA_KONTEKSTA = 32 # br. tokena
+D_MODEL = 64 # dimenzija vektora kojima su postavljeni tokeni
+
+
+def generisi(model, sp, pocetak, broj_tokena=45):
     tokeni = sp.encode(pocetak, out_type=int)
     for _ in range(broj_tokena):
         ulaz = torch.tensor(tokeni[-DUZINA_KONTEKSTA:]).unsqueeze(0)
@@ -21,7 +27,13 @@ def generisi(model, sp, pocetak, broj_tokena=30):
             logiti = model(ulaz)
         sledeci = torch.argmax(logiti[0, -1]).item()
         tokeni.append(sledeci)
-    return sp.decode(tokeni)
+    tekst = sp.decode(tokeni)
+
+    # ako model pocne sljedece pitanje, prikazujemo samo odgovor na nase
+    kraj = tekst.find("Pitanje:", 1)
+    if kraj != -1:
+        tekst = tekst[:kraj].strip()
+    return tekst
 
 
 if __name__ == "__main__":
@@ -38,6 +50,6 @@ if __name__ == "__main__":
     model.load_state_dict(torch.load(putanja_modela, map_location="cpu"))
     model.eval()
 
-    pocetak = "Ko je Nikola Tesla"
+    pocetak = input("Unesi pocetak recenice: ")
     tekst = generisi(model, sp, pocetak)
     print(tekst)
