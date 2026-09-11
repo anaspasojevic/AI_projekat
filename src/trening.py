@@ -10,7 +10,7 @@ from src.skup_podataka import napravi_ucitavac
 from src.pozicioni_kod import napravi_pozicioni_kod
 from src.model import MiniTransformer
 
-
+#NAZIV_POZICIONOG_KODA = "bez_pozicije"
 #NAZIV_POZICIONOG_KODA = "naucena_apsolutna"
 #NAZIV_POZICIONOG_KODA = "sinusoidno"
 NAZIV_POZICIONOG_KODA = "rope"

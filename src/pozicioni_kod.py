@@ -8,7 +8,7 @@ class PozicioniKod(nn.Module):
         raise NotImplementedError
 
 
-class BezPozicije(PozicioniKod):
+class BezPozicije(PozicioniKod): #NoPE
     # ne dodaje nikakvu informaciju o poziciji
 
     def primijeni(self, x):
@@ -16,7 +16,7 @@ class BezPozicije(PozicioniKod):
 
 
 class NauceniApsolutniEmbeding(PozicioniKod):
-    # svaka pozicija ima svoj vektor koji se uci i sabira sa token embedingom
+    # svaka pozicija ima svoj vektor brojeva koji se uci tokom treninga
 
     def __init__(self, duzina_konteksta, d_model):
         super().__init__()
