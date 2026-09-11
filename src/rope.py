@@ -2,6 +2,7 @@ import torch
 
 
 def primijeni_rope(x, baza=10000):
+    # najsavremeniji pristup
     # x oblika B T D, D mora biti paran
     B, T, D = x.shape
     assert D % 2 == 0
